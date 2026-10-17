@@ -1,0 +1,26 @@
+{
+  "name": "snack-journey-training-guide",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "내가 먹은 간식의 몸속 여행 — 공공 API·Cloudflare 연수 안내 웹페이지(교사용)",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/build-image-prompts.mjs && tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "images:doc": "node scripts/build-image-prompts.mjs"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.5"
+  }
+}
