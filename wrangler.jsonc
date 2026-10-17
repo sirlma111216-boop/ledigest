@@ -1,0 +1,13 @@
+{
+  // 연수 안내 사이트(정적)의 Cloudflare 배포 설정. 서버 함수·비밀값 없음.
+  // 배포: npm run deploy  (빌드 후 wrangler deploy)
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ledigest",
+  "compatibility_date": "2026-10-12",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "not_found_handling": "single-page-application"
+  }
+}

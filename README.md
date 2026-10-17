@@ -21,21 +21,18 @@ npm run preview    # 빌드 결과 미리보기 (http://localhost:4173)
 
 Node.js 18 이상이 필요합니다.
 
-## 정적 배포 설정
+## 배포
 
-이 안내 사이트에는 서버 함수가 없으므로 어떤 정적 호스팅에도 `dist/` 폴더를 그대로 올리면 됩니다.
+- 원본 저장소: https://github.com/sirlma111216-boop/ledigest
+- Cloudflare: Workers 정적 자산 프로젝트 `ledigest` (설정은 `wrangler.jsonc`, 서버 함수·비밀값 없음)
 
-**Cloudflare Pages (GitHub 연결) 예시**
+```bash
+npm run deploy   # npm run build 뒤 wrangler deploy
+```
 
-| 항목 | 값 |
-| --- | --- |
-| Framework preset | React (Vite) |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root directory | 이 `package.json`이 있는 폴더 |
-| 환경변수 | 없음 |
+처음 한 번은 `npx wrangler login`으로 Cloudflare 계정에 로그인합니다. 푸시할 때마다 자동으로 배포되게 하려면 Cloudflare 대시보드의 Workers & Pages → ledigest → Settings → Build에서 GitHub 저장소를 연결합니다(빌드 명령 `npm run build`, 배포 명령 `npx wrangler deploy`).
 
-`vite.config.ts`의 `base: './'` 덕분에 하위 경로에 올려도 동작합니다.
+이 사이트는 정적 파일만 있으므로 다른 정적 호스팅에 `dist/` 폴더를 그대로 올려도 됩니다. `vite.config.ts`의 `base: './'` 덕분에 하위 경로에 올려도 동작합니다.
 
 > 참가자 앱의 Cloudflare Pages Functions 설정(`functions/api/foods.ts`, `health.ts`, `_routes.json`, Secret 등록)은 이 README가 아니라 **안내 본문의 7·9·11·12단계**에 있습니다. 참가자 앱은 정적 업로드가 아니라 GitHub 연결 배포로 Functions까지 배포해야 합니다.
 
